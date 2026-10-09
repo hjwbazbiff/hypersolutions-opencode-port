@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.work/
+*.tgz
+__pycache__/
+*.pyc
+src/generated-skill.ts
+
+# Local credentials and captures (never commit).
+proxies.txt
+proxies*.txt
+.env
+.env.*
+*.har
+.idea/
+.DS_Store
+*.log
+
+# Private research and machine-specific verification output.
+/research/
+/verification-results.json

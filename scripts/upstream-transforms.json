@@ -1,0 +1,184 @@
+[
+  {
+    "id": "powhttp-tool-prefix",
+    "files": [
+      "skills/hypersolutions/SKILL.md",
+      "skills/hypersolutions/references/powhttp-mcp.md"
+    ],
+    "before": "mcp__plugin_hypersolutions_powhttp__",
+    "after": "powhttp_",
+    "occurrences": 2
+  },
+  {
+    "id": "har-tool-prefix",
+    "files": [
+      "skills/hypersolutions/SKILL.md",
+      "skills/hypersolutions/references/har-analyzer-mcp.md"
+    ],
+    "before": "mcp__plugin_hypersolutions_har-analyzer__analyze_har",
+    "after": "har-analyzer_analyze_har",
+    "occurrences": 2
+  },
+  {
+    "id": "powhttp-platform-name",
+    "files": [
+      "skills/hypersolutions/references/powhttp-mcp.md"
+    ],
+    "before": "Codex",
+    "after": "OpenCode",
+    "occurrences": 2
+  },
+  {
+    "id": "powhttp-native-registration-names",
+    "files": [
+      "skills/hypersolutions/references/powhttp-mcp.md"
+    ],
+    "before": "`…__get_tls_connection`, `…__get_http2_streams`. (If you instead added powhttp as a\n   standalone MCP server, the names are `mcp__powhttp__…`.)",
+    "after": "`powhttp_get_tls_connection`, `powhttp_get_http2_streams`. (A standalone MCP\n   registration under the same `powhttp` key uses these same direct tool names.)\n   This plugin defaults to direct tools (`codemode: false`) on OpenCode 2. If your\n   server override enables Code Mode, use its native `execute` tool and exact catalog\n   paths: `tools.powhttp.find_requests`, `tools.powhttp.get_tls_connection`, and\n   `tools.powhttp.get_http2_streams`, passing the same inputs described below.",
+    "occurrences": 1
+  },
+  {
+    "id": "har-registration-source",
+    "files": [
+      "skills/hypersolutions/references/har-analyzer-mcp.md"
+    ],
+    "before": "(see `.mcp.json`)",
+    "after": "(through OpenCode 2's native `mcp.servers` configuration; `mcp` on OpenCode 1)",
+    "occurrences": 1
+  },
+  {
+    "id": "har-native-oauth-command",
+    "files": [
+      "skills/hypersolutions/references/har-analyzer-mcp.md"
+    ],
+    "before": "sign-in with your Hyper Solutions account: in Codex, click **Authenticate** on the\n`har-analyzer` MCP server (Settings → MCP servers, under *From plugins*), or run\n`codex mcp login har-analyzer`. Tokens refresh automatically afterward.",
+    "after": "sign-in with your Hyper Solutions account: in OpenCode 2, run `/mcps`, select\n`har-analyzer`, and sign in. For a standalone terminal, run\n`opencode mcp auth har-analyzer` from the configured project (or anywhere after\nglobal installation), and complete the browser sign-in. Ask the user to perform\ninteractive sign-in rather than launching it inside an agent's background shell.\nOpenCode persists credentials and refreshes tokens automatically afterward.\nRun `opencode mcp list` to inspect the connection; use\n`opencode mcp logout har-analyzer` followed by sign-in if authorization must be renewed.",
+    "occurrences": 1
+  },
+  {
+    "id": "installed-skill-relative-paths",
+    "files": [
+      "skills/hypersolutions/SKILL.md"
+    ],
+    "before": "# Hyper Solutions API Integration\n",
+    "after": "# Hyper Solutions API Integration\n\n## Installed resource paths (OpenCode)\n\nOpenCode 2's native `skill` tool loads this skill with `{ id: \"hypersolutions\" }`\n(use its listed skill ID) and supplies its filesystem base directory. On OpenCode 1,\nthe same native tool takes `{ name: \"hypersolutions\" }`.\nResolve every `references/` and `scripts/` path below against that installed skill\ndirectory, not the project working directory. Read referenced files using their\nabsolute paths. Run the helper with `python3 \"<skill-base>/scripts/sec_ch_ua.py\" <version>` (or its `--check` / `--selftest` options); substitute the actual base\ndirectory supplied by the skill tool and quote the path. Python 3 is required.\n",
+    "occurrences": 1
+  },
+  {
+    "id": "helper-installed-path-example",
+    "files": [
+      "skills/hypersolutions/references/request-rules.md"
+    ],
+    "before": "`python scripts/sec_ch_ua.py <version>`",
+    "after": "`python3 \"<skill-base>/scripts/sec_ch_ua.py\" <version>` (substitute the installed skill base directory)",
+    "occurrences": 1
+  },
+  {
+    "id": "har-native-code-mode-alternative",
+    "files": [
+      "skills/hypersolutions/references/har-analyzer-mcp.md"
+    ],
+    "before": "## The tool\n",
+    "after": "## Tool presentation in OpenCode 2\n\nThis plugin defaults to direct tools (`codemode: false`), so the registered tool is\n`har-analyzer_analyze_har`. If your server override enables Code Mode, call it through\nOpenCode's native `execute` tool as `tools[\"har-analyzer\"].analyze_har`, preserving the\nhyphen with bracket notation and passing the same inputs described below. Use the\nexact paths and signatures supplied by OpenCode's catalog.\n\n## The tool\n",
+    "occurrences": 1
+  },
+  {
+    "id": "ip-utility-authentication-entry",
+    "files": [
+      "skills/hypersolutions/SKILL.md"
+    ],
+    "before": "   `GET https://ip.hypersolutions.co/ip`).",
+    "after": "   `GET https://ip.hypersolutions.co/ip` with `x-api-key`; see the IP lookup contract in\n   `references/tls-and-headers.md`).",
+    "occurrences": 1
+  },
+  {
+    "id": "ip-utility-authentication-contract",
+    "files": [
+      "skills/hypersolutions/references/tls-and-headers.md"
+    ],
+    "before": "- Get your outbound IP with `GET https://ip.hypersolutions.co/ip` (route it through the\n  same proxy you use for the target).",
+    "after": "- Get your outbound IP with `GET https://ip.hypersolutions.co/ip`, authenticated with\n  `x-api-key`, through the same proxy used for the target. Check for HTTP 200, parse\n  the JSON object, and validate its `ip` field as an IP address. An unauthenticated\n  request returns HTTP 403 with an error object; never use that body as the IP.\n  Send the API key only to Hyper Solutions, never to the target site.\n- A timed proxy rotation can work if the IP stays fixed for the entire flow. Rotate\n  between fresh sessions, then create a new cookie jar and discard old tokens. Check\n  the outbound IP on separate connections before solving and after a failed flow;\n  restart the session if it changes.",
+    "occurrences": 1
+  },
+  {
+    "id": "har-live-response-counts",
+    "files": [
+      "skills/hypersolutions/references/har-analyzer-mcp.md"
+    ],
+    "before": "- `summary` — total/confirmed/warning/info counts and an issues-by-category map.",
+    "after": "- `summary` — total/confirmed/warning/info occurrence counts and an issues-by-category\n  map. Counts can exceed the length of the grouped `issues` array. The service can\n  repeat an entry in `affected_entries` for multiple offending headers; deduplicate\n  by `entry_index` when reporting the number of affected requests.",
+    "occurrences": 1
+  },
+  {
+    "id": "powhttp-recording-prerequisite",
+    "files": [
+      "skills/hypersolutions/references/powhttp-mcp.md"
+    ],
+    "before": "3. **Route the failing script through powhttp**: set the script's HTTP/proxy to\n   `http://127.0.0.1:8080` (in addition to any upstream scraping proxy — powhttp can\n   chain). Run the failing flow so it's captured.",
+    "after": "3. **Prepare HTTPS interception** in Settings → Root Certificate: generate a root\n   certificate if none exists, then trust the exported certificate in the test client.\n   Enable TLS interception with the session padlock control. With interception off\n   or no root certificate, HTTPS can pass through without captured HTTP entries\n   even while plaintext HTTP is recorded. Keep certificate trust scoped to the client.\n4. **Enable recording in the intended capture session**, then route the failing\n   script through the proxy address shown in that session. The displayed port may\n   differ from `8080`, especially with multiple sessions. Configure its upstream\n   proxy if needed, then run the failing flow. Confirm a new request appears in the\n   session before querying MCP. A connected MCP and working proxy can still return\n   no entries when recording is off or the wrong session is selected.",
+    "occurrences": 1
+  },
+  {
+    "id": "powhttp-distinct-connection-ids",
+    "files": [
+      "skills/hypersolutions/references/powhttp-mcp.md"
+    ],
+    "before": "Params: `connectionId` + `streams` (list of `{ id, limit? }` where `id` is\n`http2.streamId`).",
+    "after": "Params: `connectionId` from **`http2.connectionId`**, plus `streams` (list of\n`{ id, limit? }` where `id` is `http2.streamId`). The TLS and HTTP/2 connection IDs\nare different: use `tls.connectionId` only for `get_tls_connection`. Passing it to\n`get_http2_streams` returns \"HTTP/2 connection not found\".",
+    "occurrences": 1
+  },
+  {
+    "id": "har-large-capture-and-body-encoding",
+    "files": [
+      "skills/hypersolutions/references/har-analyzer-mcp.md"
+    ],
+    "before": "1. **Get the HAR into the tool.** Read the `.har` file (or take the text the user\n   pasted) and call `analyze_har` with it as `har`. Start without `verbose_details`.",
+    "after": "1. **Get the HAR into the tool.** For a large capture, parse it locally and select\n   the relevant bootstrap and failed/successful endpoint entries before calling\n   `analyze_har` with the resulting HAR JSON string. Preserve the `log` envelope,\n   entry sequence and ordered header arrays. Redact credentials and personal data.\n   Start without `verbose_details`; avoid dumping the whole capture into context.\n   When inspecting bodies locally, honor `postData.encoding` and\n   `response.content.encoding`: powhttp exports can encode JSON/form text as base64.\n   Decode before parsing the body; retain the encoding marker if sending it encoded.",
+    "occurrences": 1
+  },
+  {
+    "id": "verify-client-version-before-profile-fallback",
+    "files": [
+      "skills/hypersolutions/references/tls-and-headers.md"
+    ],
+    "before": "- **TLS-profile fallback**: if your TLS library doesn't yet have the newest Chrome",
+    "after": "- **Check old example pins** before selecting a profile: compare the installed\n  TLS client release with current upstream profiles. The newest profile in an old\n  pinned dependency is not necessarily the newest available profile. Upgrade a\n  stale client before attributing persistent blocks to proxy reputation.\n- **TLS-profile fallback**: if your TLS library doesn't yet have the newest Chrome",
+    "occurrences": 1
+  },
+  {
+    "id": "api-error-triage-access-versus-input",
+    "files": [
+      "skills/hypersolutions/references/debugging.md"
+    ],
+    "before": "1. **Does the API return a payload with an empty `error`?** If `error` is non-empty, the\n   inputs are wrong (see \"API-side errors\" below) — fix inputs, not your HTTP client.",
+    "after": "1. **Which host rejected the request?** If the Hyper API returns a non-empty `error`,\n   distinguish authentication/product access from input validation using its HTTP\n   status and message (see \"API-side errors\" below). A target-site block after\n   successful generation is a separate failure; continue with questions 2–5.",
+    "occurrences": 1
+  },
+  {
+    "id": "api-product-access-errors",
+    "files": [
+      "skills/hypersolutions/references/debugging.md"
+    ],
+    "before": "(Python), or `InvalidApiResponseError` (JS). These mean the **inputs** are wrong, not the\nHTTP client:",
+    "after": "(Python), or `InvalidApiResponseError` (JS). First classify the error:\n- HTTP 401/403 or `access denied`: verify the configured key and access to the\n  specific product. A successful `/usage` or `/ip` call does not establish access\n  to every generate endpoint. Retest after an account-access change; do not\n  attribute that change to the proxy or target fingerprint.\n- Input-validation errors: check the fields below before changing the target client.",
+    "occurrences": 1
+  },
+  {
+    "id": "debug-redacted-input-evidence",
+    "files": [
+      "skills/hypersolutions/references/debugging.md"
+    ],
+    "before": "Fix by logging each input right before the call and confirming it matches what a browser\nwould have at that step.",
+    "after": "Record the failing host, HTTP status, error category and redacted input metadata\n(presence, length and expected format). Compare those inputs with the captured step;\nkeep keys, cookies and tokens out of diagnostic output.",
+    "occurrences": 1
+  },
+  {
+    "id": "live-debug-evidence-before-attribution",
+    "files": [
+      "skills/hypersolutions/SKILL.md"
+    ],
+    "before": "## Debugging\n",
+    "after": "## Debugging\n\nRecord the failing host, HTTP status and stage before choosing a cause. Generation\nsuccess or a minted token does not establish success: verify the requested target\nendpoint and expected response format. A stable IP plus a 403 does not alone prove\nproxy reputation; compare the actual TLS profile, helper-checked `sec-ch-ua`, header\norder and session state with the working capture before attributing the block.\n",
+    "occurrences": 1
+  }
+]

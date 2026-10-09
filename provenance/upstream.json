@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/Hyper-Solutions/hypersolutions-codex",
+  "commit": "748959444ca59e67ae8ce75c358a21d43f227b5d",
+  "pluginVersion": "0.4.1",
+  "author": {
+    "name": "Hyper Solutions"
+  },
+  "declaredLicense": "MIT",
+  "licenseEvidence": ".codex-plugin/plugin.json (no standalone LICENSE supplied)",
+  "mcpServers": {
+    "powhttp": {
+      "url": "http://localhost:8383/mcp"
+    },
+    "har-analyzer": {
+      "url": "https://har-mcp.hypersolutions.co/mcp",
+      "auth": "oauth"
+    }
+  },
+  "transformationsSha256": "dae216a88bc04f5f56701ae59067af73272ce6cdb662e3c9205352ecc794a34d",
+  "transformations": [
+    {
+      "id": "powhttp-tool-prefix",
+      "occurrences": 2
+    },
+    {
+      "id": "har-tool-prefix",
+      "occurrences": 2
+    },
+    {
+      "id": "powhttp-platform-name",
+      "occurrences": 2
+    },
+    {
+      "id": "powhttp-native-registration-names",
+      "occurrences": 1
+    },
+    {
+      "id": "har-registration-source",
+      "occurrences": 1
+    },
+    {
+      "id": "har-native-oauth-command",
+      "occurrences": 1
+    },
+    {
+      "id": "installed-skill-relative-paths",
+      "occurrences": 1
+    },
+    {
+      "id": "helper-installed-path-example",
+      "occurrences": 1
+    },
+    {
+      "id": "har-native-code-mode-alternative",
+      "occurrences": 1
+    },
+    {
+      "id": "ip-utility-authentication-entry",
+      "occurrences": 1
+    },
+    {
+      "id": "ip-utility-authentication-contract",
+      "occurrences": 1
+    },
+    {
+      "id": "har-live-response-counts",
+      "occurrences": 1
+    },
+    {
+      "id": "powhttp-recording-prerequisite",
+      "occurrences": 1
+    },
+    {
+      "id": "powhttp-distinct-connection-ids",
+      "occurrences": 1
+    },
+    {
+      "id": "har-large-capture-and-body-encoding",
+      "occurrences": 1
+    },
+    {
+      "id": "verify-client-version-before-profile-fallback",
+      "occurrences": 1
+    },
+    {
+      "id": "api-error-triage-access-versus-input",
+      "occurrences": 1
+    },
+    {
+      "id": "api-product-access-errors",
+      "occurrences": 1
+    },
+    {
+      "id": "debug-redacted-input-evidence",
+      "occurrences": 1
+    },
+    {
+      "id": "live-debug-evidence-before-attribution",
+      "occurrences": 1
+    }
+  ],
+  "files": [
+    {
+      "path": ".agents/plugins/marketplace.json",
+      "upstreamSha256": "dbc762ae90cffa355d6768526cb5b73d0829ac1d3bf374ea2aff4f74652ebe84",
+      "upstreamBytes": 615,
+      "disposition": "Replaced by npm package discovery and OpenCode plugin configuration; marketplace is Codex-specific."
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "upstreamSha256": "b3d1bed5669c9ce3a1fc74f04f2130ab93336bc929c8f129d235bd7736835ccc",
+      "upstreamBytes": 1338,
+      "disposition": "Replaced by package.json; upstream identity, version, license and repository recorded here."
+    },
+    {
+      "path": ".gitignore",
+      "upstreamSha256": "0a44bd2b8e7c35cfad385b8f440c3ec6ebcf8bd10248cf5925d2ceacc92f8078",
+      "upstreamBytes": 7,
+      "disposition": "Repository-only ignore configuration; no runtime capability."
+    },
+    {
+      "path": ".mcp.json",
+      "upstreamSha256": "e2c5f9728f72e2577db1682a20b5bf0629e796b72cdddec460f0c48618647e45",
+      "upstreamBytes": 195,
+      "disposition": "Both endpoints preserved in the adapter native OpenCode mcp defaults; original declarations recorded here."
+    },
+    {
+      "path": "README.md",
+      "upstreamSha256": "9f4fa9f84c37d533e27e773255b422ec87bbaa0f0b1b75e920a5d49d00e3cb8f",
+      "upstreamBytes": 7500,
+      "disposition": "Installation, authentication, usage, development, links and public/server-side boundary translated in root README.md and provenance notices."
+    },
+    {
+      "path": "skills/hypersolutions/SKILL.md",
+      "upstreamSha256": "2754fb3ed508ff2ff4e5d358d5077a4311b10b80618df72141fa6565f96ca20d",
+      "upstreamBytes": 13087,
+      "portPath": "skills/hypersolutions/SKILL.md",
+      "portSha256": "a83f343e507aee59f1919acd43115d7a833f779da4f8d2db5dde20ad64682933",
+      "portBytes": 14196,
+      "transformations": [
+        "powhttp-tool-prefix",
+        "har-tool-prefix",
+        "installed-skill-relative-paths",
+        "ip-utility-authentication-entry",
+        "live-debug-evidence-before-attribution"
+      ]
+    },
+    {
+      "path": "skills/hypersolutions/references/akamai.md",
+      "upstreamSha256": "d65f2232dba8ab0785351ae39940a7194de0638013dfc1ecac4d4af6820e837a",
+      "upstreamBytes": 11083,
+      "portPath": "skills/hypersolutions/references/akamai.md",
+      "portSha256": "d65f2232dba8ab0785351ae39940a7194de0638013dfc1ecac4d4af6820e837a",
+      "portBytes": 11083,
+      "transformations": []
+    },
+    {
+      "path": "skills/hypersolutions/references/api-reference.md",
+      "upstreamSha256": "44c7e03ab1ca61a9d179f520e816a97d6c03bb20a18c97b619d5a1206e691e3b",
+      "upstreamBytes": 8797,
+      "portPath": "skills/hypersolutions/references/api-reference.md",
+      "portSha256": "44c7e03ab1ca61a9d179f520e816a97d6c03bb20a18c97b619d5a1206e691e3b",
+      "portBytes": 8797,
+      "transformations": []
+    },
+    {
+      "path": "skills/hypersolutions/references/authentication.md",
+      "upstreamSha256": "b25adc32f638a0a4ced993cbc2beee0a2bae9119cae4c7a6b65e0374bb9371f9",
+      "upstreamBytes": 3594,
+      "portPath": "skills/hypersolutions/references/authentication.md",
+      "portSha256": "b25adc32f638a0a4ced993cbc2beee0a2bae9119cae4c7a6b65e0374bb9371f9",
+      "portBytes": 3594,
+      "transformations": []
+    },
+    {
+      "path": "skills/hypersolutions/references/datadome.md",
+      "upstreamSha256": "d9ade11821f898bd6b4e0ecdb9be09ed6801ca7a36052d0e9b32217e15bca9e1",
+      "upstreamBytes": 7873,
+      "portPath": "skills/hypersolutions/references/datadome.md",
+      "portSha256": "d9ade11821f898bd6b4e0ecdb9be09ed6801ca7a36052d0e9b32217e15bca9e1",
+      "portBytes": 7873,
+      "transformations": []
+    },
+    {
+      "path": "skills/hypersolutions/references/debugging.md",
+      "upstreamSha256": "ec992395e83b46d71a7459991964b13e58a5e1846dd8df52e7da3bc367df799b",
+      "upstreamBytes": 8399,
+      "portPath": "skills/hypersolutions/references/debugging.md",
+      "portSha256": "ade21d979e78afc57a202d6839574d9f6412a0612a441102e468d028c4a40408",
+      "portBytes": 9006,
+      "transformations": [
+        "api-error-triage-access-versus-input",
+        "api-product-access-errors",
+        "debug-redacted-input-evidence"
+      ]
+    },
+    {
+      "path": "skills/hypersolutions/references/har-analyzer-mcp.md",
+      "upstreamSha256": "d7e832f236de9ce6578184950d833632d613424678acfe2543e5b26ae97840e6",
+      "upstreamBytes": 5918,
+      "portPath": "skills/hypersolutions/references/har-analyzer-mcp.md",
+      "portSha256": "bdc03d4dc3eb2d20391344c60bdb18f210d6f1823ce5d61ba119631103ab801d",
+      "portBytes": 7467,
+      "transformations": [
+        "har-tool-prefix",
+        "har-registration-source",
+        "har-native-oauth-command",
+        "har-native-code-mode-alternative",
+        "har-live-response-counts",
+        "har-large-capture-and-body-encoding"
+      ]
+    },
+    {
+      "path": "skills/hypersolutions/references/incapsula.md",
+      "upstreamSha256": "30ba8919e4379876d5d37ede8c07be5c7e194f112fe3f4ebd72e4f0fbca17225",
+      "upstreamBytes": 6447,
+      "portPath": "skills/hypersolutions/references/incapsula.md",
+      "portSha256": "30ba8919e4379876d5d37ede8c07be5c7e194f112fe3f4ebd72e4f0fbca17225",
+      "portBytes": 6447,
+      "transformations": []
+    },
+    {
+      "path": "skills/hypersolutions/references/kasada.md",
+      "upstreamSha256": "17c548074799f45ccfdb1537398195200a2ddf931ad9050db500588c50ecdc0c",
+      "upstreamBytes": 6567,
+      "portPath": "skills/hypersolutions/references/kasada.md",
+      "portSha256": "17c548074799f45ccfdb1537398195200a2ddf931ad9050db500588c50ecdc0c",
+      "portBytes": 6567,
+      "transformations": []
+    },
+    {
+      "path": "skills/hypersolutions/references/powhttp-mcp.md",
+      "upstreamSha256": "a80631b3ac5198a1c6c64ad0357e1d686cabbfb96a7123b8ed49f677f774c37d",
+      "upstreamBytes": 6081,
+      "portPath": "skills/hypersolutions/references/powhttp-mcp.md",
+      "portSha256": "80ad38e7592d699f33004dee0ca2d530ccd34729cfacf8b5efd2ce03f1296354",
+      "portBytes": 7290,
+      "transformations": [
+        "powhttp-tool-prefix",
+        "powhttp-platform-name",
+        "powhttp-native-registration-names",
+        "powhttp-recording-prerequisite",
+        "powhttp-distinct-connection-ids"
+      ]
+    },
+    {
+      "path": "skills/hypersolutions/references/request-rules.md",
+      "upstreamSha256": "47b7187c61150ac714c9fddcdb86604e543c51d40eb80770e344e718604a0f72",
+      "upstreamBytes": 6310,
+      "portPath": "skills/hypersolutions/references/request-rules.md",
+      "portSha256": "5c23e83c9c9420611bf690d9063d222fe3134571ea915562b0d2f7e812f8f6f8",
+      "portBytes": 6374,
+      "transformations": [
+        "helper-installed-path-example"
+      ]
+    },
+    {
+      "path": "skills/hypersolutions/references/tls-and-headers.md",
+      "upstreamSha256": "71cfcf3009d6b7ec8a0355d2ef8bdc0c53c2084ed4def91ae99fbff6e37b53a1",
+      "upstreamBytes": 8292,
+      "portPath": "skills/hypersolutions/references/tls-and-headers.md",
+      "portSha256": "bb417a2edbc3f6c088e4da46b4163a79f38616f36ddb2631b82372d994ad5de8",
+      "portBytes": 9172,
+      "transformations": [
+        "ip-utility-authentication-contract",
+        "verify-client-version-before-profile-fallback"
+      ]
+    },
+    {
+      "path": "skills/hypersolutions/scripts/sec_ch_ua.py",
+      "upstreamSha256": "4654bfe39607d9271d6b1187f66ce0994a53aae962e9a0c402c5ccebe4b29097",
+      "upstreamBytes": 4568,
+      "portPath": "skills/hypersolutions/scripts/sec_ch_ua.py",
+      "portSha256": "4654bfe39607d9271d6b1187f66ce0994a53aae962e9a0c402c5ccebe4b29097",
+      "portBytes": 4568,
+      "transformations": []
+    }
+  ]
+}

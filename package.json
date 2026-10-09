@@ -1,0 +1,78 @@
+{
+  "name": "hypersolutions-opencode",
+  "version": "0.2.0",
+  "description": "Unofficial OpenCode fork/port of the Hyper Solutions Codex plugin, with native skills and powhttp/HAR MCP integration.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/index.d.ts",
+      "import": "./server.js",
+      "default": "./server.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/",
+    "server.js",
+    "skills/",
+    "docs/",
+    "provenance/",
+    "scripts/sync-upstream.mjs",
+    "scripts/upstream-transforms.json",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20.19.0",
+    "opencode": ">=1.18.35 <2 || >=2.0.24 <3"
+  },
+  "license": "MIT",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "hypersolutions",
+    "mcp",
+    "powhttp",
+    "har",
+    "akamai",
+    "incapsula",
+    "datadome",
+    "kasada"
+  ],
+  "scripts": {
+    "build": "node scripts/build-skill.mjs && tsc -p tsconfig.json",
+    "check": "node scripts/build-skill.mjs && tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && npm run audit:content && node --test test/*.test.mjs",
+    "audit:content": "node scripts/sync-upstream.mjs --check",
+    "test:integration": "node test/integration.mjs",
+    "test:integration:v2": "node test/integration-v2.mjs",
+    "prepack": "npm run build && npm run audit:content"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "1.18.35",
+    "@opencode-ai/sdk": "1.18.35",
+    "@types/node": "^22.0.0",
+    "typescript": "~5.9.3",
+    "yaml": "2.9.1"
+  },
+  "dependencies": {
+    "@opencode/plugin": "2.0.24"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjwbazbiff/hypersolutions-opencode-port.git"
+  },
+  "homepage": "https://github.com/hjwbazbiff/hypersolutions-opencode-port#readme",
+  "bugs": {
+    "url": "https://github.com/hjwbazbiff/hypersolutions-opencode-port/issues"
+  }
+}
